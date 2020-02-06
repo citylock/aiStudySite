@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Welcome to the StudyRoom!</h2>
+  <p class="lead">
+    
+    If you already have an account, go ahead and <a href="#"><button type ="button" class='btn btn-primary'>Log in</button></a>. If you are new to StudyRoom, get started
+    by creating a <a href="#"><button class='btn btn-primary'>student account</button></a> or a <a href="#"><button class='btn btn-primary'>teacher account</button></a>.
+  </p>
+  <hr>
+  <h3>What's this about?</h3>
+  <p>
+    This Django application is an example I created to illustrate a <a href="#">blog post about how to implement multiple user types</a>.
+    In this application, users can sign up as a student or a teacher. Teachers can create quizzes and students can answer quizzes
+    based on their interests.
+  </p>
+  <p>Want to run this code locally? <a href="#">Read detailed instructions on how to run this project</a>.</p>
+  <p class="mb-0">Vitor Freitas<br><a href="#">@vitorfs</a></p>
+{% endblock %}
