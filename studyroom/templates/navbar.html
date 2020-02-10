@@ -1,22 +1,44 @@
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">StudyRoom</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-        </li>
-        </ul>
-        <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Search</button>
-        </form>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+    <div class='container'> 
+        <a class="navbar-brand" href="{% url 'home' %}">StudyRoom</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+            </li>
+            </ul>
+            {% if user.is_authenticated %}
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Hi, {{ user.username }} 
+                        {% if user.is_staff %}
+                            (Teacher)
+                        {% else %}
+                            (Student)
+                        {% endif %}
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{% url 'password_change' %}">Change password</a>
+                        <a class="dropdown-item" href="{% url 'logout' %}">Log out</a>
+                    </li>
+                </ul>
+            {% else %}
+            <form class="form-inline my-2 my-lg-0">
+                <a href="{% url 'login' %}" class="btn btn-outline-secondary mr-2">Log in</a>
+                <a href="{% url 'signup' %}" class="btn btn-primary">Sign up</a>
+            </form>
+            {% endif %}
+
+        </div>  
     </div>
+
 </nav>

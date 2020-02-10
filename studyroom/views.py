@@ -1,12 +1,10 @@
 from django.shortcuts import render
+from django.contrib.auth.models import User
 
 # Create your views here.
 
 def home(request):
-    # if request.user.is_authenticated:
-    #     if request.user.is_teacher:
-    #         return redirect('teachers:quiz_change_list')
-    #     else:
-    #         return redirect('students:quiz_list')
-    return render(request, 'studyroom/home.html', {})
+    count = User.objects.count()
+    return render(request, 'studyroom/home.html', {'count': count})
+    
 

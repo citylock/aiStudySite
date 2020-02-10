@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="container">
+    <h1>Login</h1>
+
+    {% if error %}
+        <h3>{{ error }} </h3>
+    {% endif %}
+
+    <form method="POST" action="{% url 'login' %}">
+        {% csrf_token %}
+        <table> 
+            <!-- {{ SigninForm.as_table }} -->
+            {{ form | crispy }}
+        </table>
+        <input type="submit" class="btn btn-secondary" value="Login">
+        <a href="{% url 'password_reset' %}">Forget your password?</a>
+    </form>
+    
+
+    <!-- 기존 로그인 방식 HTML -->
+
+    <!-- <form method="POST" action="{% url 'login' %}">
+        {% csrf_token %}
+        Username : 
+        <br/><input name="username" type="text"><br/>
+        Password : 
+        <br/><input name="password" type="password"><br/><br/>
+        <input type="submit" class="btn btn-primary" value="Login">
+    </form> -->
+
+</div>
+
+
+{% endblock %}

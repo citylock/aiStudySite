@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="container">
+
+    <h1>Sign up!!</h1>
+    {% if error %}
+        {{ error }}
+    {% endif %}
+
+    <form action="" method="POST">
+    {% csrf_token %}
+        <table>
+            <!-- {{ signupForm.as_table }} -->
+            {{ signupForm | crispy }}
+            </table>
+        <input type="submit" class="btn btn-secondary" value="Sign up"> 
+    </form>
+
+    <!-- HTML Form 사용 -->
+
+    <!-- <form method="POST" action="{% url 'signup' %}">
+        {% csrf_token %}
+        Username : 
+        <br/><input name="username" type="text"><br/>
+        Password : 
+        <br/><input name="password1" type="password"><br/>
+        Confirm Password:
+        <br/><input name="password2" type="password"><br/><br/>
+        <input type="submit" class="btn btn-primary" value="sign up">
+    </form> -->
+
+
+</div>
+
+
+{% endblock %}
