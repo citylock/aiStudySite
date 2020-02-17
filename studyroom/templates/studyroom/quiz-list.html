@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>List of Quizzes</h2> 
+    {% if quizzes %}
+        <table class="table table-bordered table-striped table-hover">
+            <thead>
+                <th>Title</th>
+                <th>Slug</th>
+                <th>Max Questions</th>
+                <th>Pass Mark</th>
+            </thead>
+            <tbody>
+            {% for quiz in quizzes %}
+                <tr>
+                    <td>{{ quiz.title }}</td>
+                    <td>{{ quiz.slug }}</td>
+                    <td>{{ quiz.max_question }}</td>
+                    <td>{{ quiz.pass_mark }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+
+    {% else %}
+        <p>There are no available quizzes.</p>
+    {% endif %}
+
+
+{% endblock %}

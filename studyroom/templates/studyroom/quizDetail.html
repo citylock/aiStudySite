@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Quiz Details </h2> 
+    <h3>url : {{ object.slug }} <br/></h3>
+    <strong>Title</strong> : {{ object.title }} <br/>
+    <strong>Slug</strong> : {{ object.slug }} <br/>
+    <strong>Random Order</strong> : {{ quiz.random_order }} <br/>
+    <strong>Max Question </strong> : {{ quiz.max_question }} <br/>
+    <strong>Pass Mark </strong> : {{ quiz.pass_mark }} <br/>
+    <p><br>
+    <button>Start Quiz</button>
+    </p>
+
+{% endblock %}
