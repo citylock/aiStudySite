@@ -3,13 +3,19 @@
 {% block content %}
     <h2>Quiz Details </h2> 
     <h3>url : {{ object.slug }} <br/></h3>
+    <hr>
     <strong>Title</strong> : {{ object.title }} <br/>
     <strong>Slug</strong> : {{ object.slug }} <br/>
+    <strong>Number of Questions in a Quiz</strong> : {{ object.max_question }} <br/>
+    <strong>Total Questions</strong> : {{ questions.count }} <br/>
+    <hr>
+    
     <strong>Random Order</strong> : {{ quiz.random_order }} <br/>
     <strong>Max Question </strong> : {{ quiz.max_question }} <br/>
     <strong>Pass Mark </strong> : {{ quiz.pass_mark }} <br/>
     <p><br>
-    <button>Start Quiz</button>
+    <a href="{% url 'quiz-test' object.slug %}" class="btn btn-sm btn-info">Start Quiz</a> 
+        <button>Start Quiz</button>
     </p>
 
 {% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<h2>Quiz Take</h2> 
+
+Quiz : {{ quiz }}
+
+<hr>
+qinstance : {{ qinstance.student }}, {{ qinstance.quiz }}, {{qinstance.curr_question}}, {{qinstance.questions}}, {{qinstance.created_date}}
+
+<hr>
+Exams : {{ exams }}
+
+{% for ex in exams %}
+{{ ex }}
+{{ ex.answer}}
+{% endfor %}
+
+<hr>
+form : {{ form }}
+
+{% endblock %}
